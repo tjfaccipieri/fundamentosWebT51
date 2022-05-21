@@ -1,0 +1,228 @@
+/* importação de fonte externa... peguei do fonts.google.com */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;600;800&display=swap');
+
+
+/* reset de css, pra garantir que abra o layout igual em todos os navegadores (esse ta bem básico) */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* definição de variaveis no CSS... podemos usar o :root no começo do código, e obrigatoriamente toda variavel tem que começar com -- */
+:root {
+  --main-color: #6096ba;
+  --accent-color: #a3cef1;
+  --primary-color: #70a288;
+  --background-color: #2e242a;
+}
+
+/* para chamar uma das variaveis nos atributos, usamos var("nome da variavel") */
+body {
+  background-color: var(--background-color);
+}
+
+nav {
+  background-color: var(--primary-color);
+  padding: 0.75rem;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  gap: 2rem; /* gap serve para criar um vão entre os itens do display flex, funciona como uma margem */
+}
+
+nav ul li a {
+  text-decoration: none;
+  font-size: 1.5rem;
+  letter-spacing: 2px; /* colocar um espaçamento maior entre as letras do texto, muito usado para criar um ponto de interesse no design */ 
+  color: var(--background-color);
+  font-weight: 600;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+.active {
+  font-weight: 800;
+}
+
+main {
+  margin-top: 1rem;
+}
+
+h1,
+h2 {
+  color: var(--main-color);
+  text-align: center;
+}
+
+h1 {
+  font-size: 3rem; /* 1REM = 16px para configurações padrão de navegador, mas o REM sempre vai respeitar a fonte padrão do navegaor do usuario */ 
+}
+
+h1:hover {
+  text-shadow: #1b4b72 2px 5px; /* sombra no texto, sempre com cor, valor horizontal e valor vertical */
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+.sobre {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 80vw; /* tamanho fixo de largura, de 80 pedaços da viewport (area total do navegador) "a viewport sempre vai até o 100 */
+  margin: 0 auto; /* 0 de margem para cima e para baixo, automatico para os lados... isso deixa o conteudo ao centro da tela */
+  gap: 2rem;
+}
+
+.textos {
+  color: var(--accent-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.25rem;
+  width: 60%;
+  font-size: 1.25rem;
+  font-weight: 300;
+  user-select: none; /* impedindo que o usuário possa selecionar o conteudo desse bloco */
+}
+
+
+.sobre img {
+  height: auto;
+  width: max(30%, 350px); /* com o svalor max(), podemos passar 2 valores, e sempre será escolhido o maior entre eles, então quando 30% do espaço disponivel for menor do que 350px, o segundo valor será usado */
+  object-fit: contain; /* ajuste de imagem, para que ela nao corte, ela sempre irá se conter dentro do espaço, ajustando automaticamente */ 
+  border-radius: 0.5rem;
+  border: 1px solid var(--main-color);
+  padding: 2px;
+  opacity: 0.2; /* diminuindo a opacidade da imagem, em porcentagem.. => 0.2 = 20% */
+  transition: opacity 0.6s ease; /* efeito de transição, para ativar o hover logo abaixo.. vai demorar 0.6 segundos pra atingir o 100% de opacidade */
+}
+
+.sobre img:hover {
+  opacity: 1; /* voltando a opacidade da imagem pra 100% */
+}
+
+.video {
+  margin-top: 1rem;
+}
+
+.youtube {
+  width: 70vw;
+  aspect-ratio: 16/9; /* manter a proporção automatica do video... para cada 16 de largura, vai ter 9 de altura (esse é o padrão de basicamente qualquer monitor ou tv, por exemplo) */
+  margin: 0.75rem auto;
+  display: block;
+  border-radius: 1rem;
+}
+
+footer {
+  font-size: 1.5rem;
+  text-align: center;
+  color: var(--accent-color);
+  font-weight: 100;
+  margin: 1rem 0;
+  border-top: 1px solid;
+  padding-top: 0.5rem;
+}
+
+footer span {
+  font-weight: 600;
+  color: var(--main-color);
+}
+
+/* ! estilização do cadastro */
+.contato {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  min-height: 78vh; /* tamanho minimo da tela, mas pode crescer caso coloque mais conteudo... fiz isso pra poder jogar o footer mais pra baixo, pq o conteudo do contato é bem pequeno */
+  width: 75%;
+  margin: 0 auto;
+}
+
+.contato form {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+}
+
+.contato label,
+.contato p {
+  color: var(--accent-color);
+  margin-bottom: 0.275rem;
+}
+
+.contato input, .contato textarea {
+  width: 100%;
+  resize: none; /* impedindo que o usuário possa alterar o tamanho da caixa de texto, pra não causar com o meu layout */
+  border: 0;
+  padding: 0.275rem;
+  font-size: 1.075rem;
+  margin-bottom: 1rem;
+  color: var(--accent-color);
+  background-color: transparent;
+  border-bottom: 2px solid;
+}
+
+.contato button {
+  padding: 0.5rem 1rem;
+  width: 100%;
+  border: 2px solid var(--main-color);
+  border-radius: 0.25rem;
+  background-color: transparent;
+  color: var(--main-color);
+  font-size: 1.275rem;
+  font-weight: 600;
+  width: max(50%, 150px);
+  margin: 0 auto;
+  cursor: pointer; /* mudando o formatod o cursor do mouse quando colocar em cima do botão, praquele de mãozinha */
+  transition: 0.3s ease-out;
+}
+
+.contato button:hover {
+  color: var(--background-color);
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.contato h2 {
+  font-size: 1.5rem;
+}
+
+.mapa {
+  width: max(40vw, 500px);
+  height: auto;
+  aspect-ratio: 16/9;
+}
+
+/* ? Ajustes para mobile, por aqui, eu consigo escolher como a tela vai se comportar em tamanhos menores do que 767px, basicamente qualquer celular... poderia ter vários desses @media, um pra cada tamanho de tela diferente que precise, como tablets e telas muito grandes, por exemplo */
+
+/* ! tudo o que for colocado aqui, vai substituir o que já foi colocado em cima, então podemos modificar como a tela aparece, como mudar a ordenação de um flex, por exemplo, assim como eu fiz na classe .sobre, ali em baixo */
+@media (max-width: 767px) {
+  nav ul {
+    justify-content: center;
+  }
+
+  .sobre {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  .textos {
+    width: 100%;
+  }
+
+  .contato {
+    flex-direction: column;
+  }
+
+  .contato form {
+    width: 100%;
+  }
+}

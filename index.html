@@ -20,7 +20,7 @@
     </nav>
 
     <main>
-      <h1>Sobre o Thiago</h1>
+      <h1 id="element"></h1>
 
       <section class="sobre">
         <div class="textos">
@@ -67,5 +67,18 @@
         Feito com amor e carinho por: <span>Thiago Faccipieri - 2022</span> 🍔
       </p>
     </footer>
+
+
+    <script src="./assets/script/script.js"></script>
+    <script src="https://unpkg.com/typeit@8.5.4/dist/index.umd.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        new TypeIt("#element", {
+          strings: ["Vamos ver JS."],
+          loop: true
+        }).go();
+      });
+    </script>
   </body>
 </html>

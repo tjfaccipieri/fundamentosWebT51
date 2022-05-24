@@ -26,15 +26,18 @@
       <section class="contato">
         <form>
           <label for="nome">Nome:</label>
-          <input type="text" id="nome" />
-
+          <input type="text" id="nome" onkeyup="nomeDigitado()" required />
+          <div id="txtNome"></div>
+          
           <label for="email">E-mail:</label>
-          <input type="email" id="email" />
-
+          <input type="email" id="email" onkeyup='validaEmail()' required />
+          <div id="txtEmail"></div>
+          
           <label for="assunto">Assunto:</label>
-          <textarea name="assunto" id="assunto" rows="6"></textarea>
+          <textarea name="assunto" id="assunto" rows="6" onkeyup='assuntoDigitado()' required></textarea>
+          <div id="txtAssunto"></div>
 
-          <button>Enviar</button>
+          <button onclick="enviar()">Enviar</button>
         </form>
 
         <div>
@@ -60,5 +63,7 @@
         Feito com amor e carinho por: <span>Thiago Faccipieri - 2022</span> 🍔
       </p>
     </footer>
+
+    <script src="./assets/script/script.js"></script>
   </body>
 </html>
